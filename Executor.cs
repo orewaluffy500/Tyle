@@ -37,6 +37,7 @@ public class Executor
             {InstructionTypes.SYSCALL,          HandleInstructionSyscall},
             {InstructionTypes.HALT,             HandleInstructionHalt},
             {InstructionTypes.BREAK,            HandleInstructionBreak},
+            {InstructionTypes.DUPE,             HandleInstructionDup},
         };
 
         ControlHandlers = new()
@@ -44,7 +45,6 @@ public class Executor
             {InstructionTypes.IF,               HandleInstructionIf},
             {InstructionTypes.UNTIL,            HandleInstructionUntil},
             {InstructionTypes.END,              HandleInstructionEnd},
-            {InstructionTypes.DUPE,             HandleInstructionDup},
         };
     }
 
@@ -296,6 +296,7 @@ public class Executor
     private void SyscallPrintString()
     {
         Console.WriteLine(VM.StringBuffer);
+        VM.StringBuffer = "";
     }
 
     private void SyscallReadNumeral()
