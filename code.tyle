@@ -1,0 +1,9 @@
+until #1 100
+    sel #2
+    syscall [scan]
+    syscall [rprint]
+    if equ 1
+        syscall [rprint]
+        break
+    end
+end
